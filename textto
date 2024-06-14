@@ -1,1 +1,34 @@
+def contar_letras_y_espacios(archivo):
+    try:
+        # Abre el archivo en modo lectura
+        with open(archivo, 'r') as f:
+            # Lee todo el contenido del archivo
+            contenido = f.read()
+            
+            # Inicializa contadores de letras y espacios
+            num_letras = 0
+            num_espacios = 0
+            
+            # Itera sobre cada caracter en el contenido
+            for caracter in contenido:
+                # Incrementa el contador de letras si el caracter es una letra
+                if caracter.isalpha():
+                    num_letras += 1
+                # Incrementa el contador de espacios si el caracter es un espacio en blanco
+                elif caracter.isspace():
+                    num_espacios += 1
+            
+            # Imprime los resultados
+            print("Número de letras:", num_letras)
+            print("Número de espacios:", num_espacios)
+            
+    except FileNotFoundError:
+        print("El archivo no fue encontrado.")
+
+
+# Ingresa el nombre del archivo que deseas analizar
+nombre_archivo = input("Ingresa el nombre del archivo a analizar: ")
+
+# Llama a la función para contar letras y espacios
+contar_letras_y_espacios(nombre_archivo)
 
